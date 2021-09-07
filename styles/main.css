@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #03a9f4;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
+}
+
+body.active {
+    background-color: #f43648;
+}
+
+body.logged {
+    background-color: #33b864;
+}
+
+.container {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    margin: 20px;
+    /* border: 2px dashed red; */
+}
+.blueBg {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 40px;
+    width: 100%;
+    height: 420px;
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: 0 5px 45px 0 rgba(0,0,0,0.15);
+}
+
+.blueBg .box {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+.btn {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.blueBg h2 {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.formBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    height: 100%;
+    width: 50%;
+    transition: 0.5s ease-in-out;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 5px 45px 0 rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.formBg.active {
+    left: 50%;
+}
+
+.form {
+    position: absolute;
+    left: 0;
+    padding: 2em;
+    width: 100%;
+    transition: background-color 0.5s, left 0.5s, top 0.5s;
+    transition-delay: 0.2s;
+}
+
+.form form > * {
+    width: 100%;
+    /* margin-top: 20px; */
+    margin-bottom: 20px;
+}
+
+.form input {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.form a {
+    color: #333;
+}
+
+.form input:is([type="button"], [type="submit"]) {
+    width: max-content;
+}
+
+.form input:is([type="text"], [type="password"], [type="email"]) {
+    font-size: 16px;
+    padding-inline: 10px;
+    outline: none;
+}
+
+.formBg .form form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.formBg.logged {
+    width: 100%;
+}
+
+.signUpForm {
+    left: 100%;
+}
+
+.signUpForm.active {
+    left: 0;
+}
+
+.signInForm.inactive {
+    left: -100%;
+}
+
+.signInForm .btn {
+    background-color: #03a9f4;
+    color: white;
+}
+
+.signUpForm .btn {
+    background-color: #f43648;
+    color: white;
+}
+
+.activeAccountForm .btn {
+    background-color: #33b864;
+    color: white;
+}
+
+.formBg form.active {
+    right: 50%;
+}
+
+@media screen and (max-width: 991px) {
+    .container {
+        height: 80vh;
+        width: 600px;
+    }
+    .blueBg {
+        top: 0;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+    .formBg {
+        width: 100%;
+        height: 80%;
+    }
+    .blueBg .box {
+        height: 20%;
+    }
+    .formBg.active {
+        top: 20%;
+        left: 0;
+    }
+    .formBg.logged {
+        height: 100% !important;
+    }
+}
+
+input.valid {
+    border: 2px solid green !important;
+    color: green !important;
+}
+
+input.invalid {
+    border: 2px solid #f43648 !important;
+    color: #f43648 !important;
+}
+
+.message {
+    position: absolute;
+    color:  #f43648;
+    font-size: 10px;
+}
+
+.avatar {
+
+}
+
+.input-col {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.input-row {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+.activeAccountForm.form {
+    transition-delay: 0;
+}
+
+.activeAccountForm.hidden {
+    top: -100%;
+}
+.activeAccountForm .input-col {
+    gap: 20px;
+    flex: 1;
+}
+.activeAccountForm .btn[name="edit"] {
+    background-color: gold;
+}
+
+.activeAccountForm .btn[name="delete"] {
+    background-color: #f43648;
+}
+
+.activeAccountForm .form-title {
+    font-size: 30px;
+}
