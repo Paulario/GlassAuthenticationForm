@@ -37,6 +37,7 @@ export let users = (function(){
             return user.email === email 
                 && user.password === password;
         });
+        ACCOUNTS.splice(index, 1);
     }
     function check(email, password) {
         let valid = false;
